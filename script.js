@@ -30,6 +30,7 @@ function removeLoadingSpinner() {
     if (!loader.hidden) {
         parag.hidden = false;
         loader.hidden = true;
+        textBlock.style.cssText = "width:100%;";
 
     }
 }
