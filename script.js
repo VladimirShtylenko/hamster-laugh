@@ -5,7 +5,8 @@ let loader = document.querySelector('#loader'),
     textBlock = document.querySelector('.text-block'),
     btnChange = document.querySelectorAll('.btn-change'),
     btnNext = document.querySelector('.btn-next');
-
+parag.innerHTML = 'Ну что начнем?';
+//change the category of humor buttons
 btnChange.forEach(elem => {
     elem.addEventListener('click', () => {
         xhr.open('GET', `https://shrouded-chamber-70760.herokuapp.com/http://rzhunemogu.ru/Rand.aspx?CType=${elem.dataset.num}`);
@@ -17,8 +18,6 @@ btnChange.forEach(elem => {
 
 });
 
-
-parag.innerHTML = 'Ну что начнем?';
 //Loader start
 function showLoadingSpinner() {
     loader.hidden = false;
@@ -34,7 +33,7 @@ function removeLoadingSpinner() {
 
     }
 }
-// Show the 
+// Show the laugh text
 function startLaughing() {
     showLoadingSpinner();
     xhr.onload = function() {
@@ -52,7 +51,7 @@ function startLaughing() {
     };
 }
 
-//next button by pressing on, the content changes
+//next button content changes
 btnNext.addEventListener('click', () => {
     xhr.open('GET', `https://shrouded-chamber-70760.herokuapp.com/http://rzhunemogu.ru/Rand.aspx?CType=${btnNext.dataset.num}`);
     xhr.send();
