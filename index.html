@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Анекдоты от хомяка</h1>
+        <ul>
+            <li><button data-num="1" class="btn-change">Анекдот</button></li>
+            <li><button data-num="2" class="btn-change">Рассказы</button></li>
+            <li><button data-num="3" class="btn-change">Стишки</button></li>
+            <li><button data-num="4" class="btn-change">Афоризмы</button></li>
+            <li><button data-num="5" class="btn-change">Цитаты</button></li>
+            <li><button data-num="6" class="btn-change">Тосты</button></li>
+        </ul>
+        <div class="container">
+
+            <div class="image-block">
+                <img src="source.gif" alt="cookie">
+            </div>
+
+            <div class="text-block">
+                <i class="fas fa-quote-left"></i>
+                <div id="loader" hidden><img src="loader.svg" alt="loading"></div>
+                <p class="parag"></p>
+                <i class="fas fa-quote-right"></i>
+            </div>
+
+        </div>
+        <button class="btn-next">Следующий</button>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
