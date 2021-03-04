@@ -149,7 +149,7 @@ button:active {
         margin-left: 5px;
     }
     .text-block {
-        max-width: 100%;
+        max-width: 100%!important;
         height: auto;
         margin-left: 10px;
         margin-right: 10px;

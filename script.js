@@ -23,7 +23,7 @@ parag.innerHTML = 'Ну что начнем?';
 function showLoadingSpinner() {
     loader.hidden = false;
     parag.hidden = true;
-    textBlock.style.cssText = "width:500px;";
+    textBlock.style.cssText = "width:300px;";
 }
 //Loader end
 function removeLoadingSpinner() {
