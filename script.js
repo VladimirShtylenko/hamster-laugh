@@ -46,6 +46,7 @@ function startLaughing() {
             parser = new DOMParser();
             xmlDoc = parser.parseFromString(text, "text/xml");
             parag.innerHTML = xmlDoc.getElementsByTagName("content")[0].innerHTML;
+
             removeLoadingSpinner();
         }
 
@@ -82,6 +83,7 @@ const speak = () => {
 btnPlay.addEventListener('click', speak);
 //next button content changes
 btnNext.addEventListener('click', () => {
+    speechSynthesis.cancel();
     xhr.open('GET', `https://shrouded-chamber-70760.herokuapp.com/http://rzhunemogu.ru/Rand.aspx?CType=${btnNext.dataset.num}`);
     xhr.send();
     xhr.responseType = "text";
