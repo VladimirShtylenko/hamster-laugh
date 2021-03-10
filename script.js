@@ -1,10 +1,12 @@
+const { speechSynthesis } = window;
 let parag = document.querySelector('.parag');
 let xhr = new XMLHttpRequest();
 let text, parser, xmlDoc;
 let loader = document.querySelector('#loader'),
     textBlock = document.querySelector('.text-block'),
     btnChange = document.querySelectorAll('.btn-change'),
-    btnNext = document.querySelector('.btn-next');
+    btnNext = document.querySelector('.btn-next'),
+    btnPlay = document.querySelector('.play-btn');
 parag.innerHTML = 'Ну что начнем?';
 //change the category of humor buttons
 btnChange.forEach(elem => {
@@ -51,6 +53,33 @@ function startLaughing() {
     };
 }
 
+//Load the voices
+let voicesArr = [];
+const generateVoices = () => {
+    voicesArr = speechSynthesis.getVoices();
+    const voicesList = voicesArr
+        .map((voice, index) => `<option value=${index}>${voice.name}(${voice.lang})</option>`)
+        .join('');
+};
+
+//Speaking function
+const speak = () => {
+    if (speechSynthesis.speaking) {
+        console.log('Error speechSynthesis.speaking ');
+        return;
+    }
+    if (parag.innerHTML != '') {
+        const ssUtterance = new SpeechSynthesisUtterance(parag.innerHTML);
+        ssUtterance.addEventListener('end', (event) => console.warn('ssUtterance.end'));
+        ssUtterance.addEventListener('error', (event) => console.warn('ssUtterance.error'));
+        ssUtterance.voice = voicesArr[0];
+        ssUtterance.pitch = 1;
+        ssUtterance.rate = 6;
+        speechSynthesis.speak(ssUtterance);
+    }
+};
+//button playing the text
+btnPlay.addEventListener('click', speak);
 //next button content changes
 btnNext.addEventListener('click', () => {
     xhr.open('GET', `https://shrouded-chamber-70760.herokuapp.com/http://rzhunemogu.ru/Rand.aspx?CType=${btnNext.dataset.num}`);
@@ -58,3 +87,5 @@ btnNext.addEventListener('click', () => {
     xhr.responseType = "text";
     startLaughing();
 });
+
+generateVoices();
