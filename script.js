@@ -73,8 +73,8 @@ const speak = () => {
         ssUtterance.addEventListener('end', (event) => console.warn('ssUtterance.end'));
         ssUtterance.addEventListener('error', (event) => console.warn('ssUtterance.error'));
         ssUtterance.voice = voicesArr[0];
-        ssUtterance.pitch = 1;
-        ssUtterance.rate = 2;
+        // ssUtterance.pitch = 1;
+        // ssUtterance.rate = 2;
         speechSynthesis.speak(ssUtterance);
     }
 };
